@@ -1,0 +1,186 @@
+{
+  "task_id": "tether_release_invisible_centripetal_force_00014000",
+  "category": "rotating_tether_release",
+  "violation_type": "continue_centripetal_force_after_tether_release",
+  "phenomenon": "tether_release_invisible_centripetal_force",
+  "onset_frame": 49,
+  "intervention_frame": 49,
+  "first_changed_frame": 49,
+  "evidence_frame": 66,
+  "paths": {
+    "true": {
+      "video": "true/video.mp4",
+      "trajectory": "true/trajectory.npz",
+      "prompt": "true/prompt.txt"
+    },
+    "counterfactual": {
+      "video": "counterfactual_continue_centripetal_force_after_tether_release/video.mp4",
+      "trajectory": "counterfactual_continue_centripetal_force_after_tether_release/trajectory.npz",
+      "prompt": "counterfactual_continue_centripetal_force_after_tether_release/prompt.txt",
+      "mask": "counterfactual_continue_centripetal_force_after_tether_release/mask.mp4",
+      "mask_overlay": "counterfactual_continue_centripetal_force_after_tether_release/mask_overlay.mp4"
+    }
+  },
+  "descriptions": {
+    "true": "A puck circles a central mast at radius 1.56 m and speed 1.02 m/s on a horizontal zero-gravity air-bearing table. At release, the orange tether visibly detaches from the puck and remains behind in its release pose. With no remaining horizontal force, the puck then follows the straight tangent to the release point.",
+    "counterfactual": "A puck circles a central mast at radius 1.56 m and speed 1.02 m/s on a horizontal zero-gravity air-bearing table. At the same release instant, the orange tether visibly detaches from the puck and remains behind in its release pose, but the puck continues curving around the mast and stays near the old orbit. No tether connection, rail, magnetic field, or other inward actuator acts on the puck."
+  },
+  "mask_spec": {
+    "target_entities": [
+      "orbiting_puck"
+    ],
+    "mask_source": "violation",
+    "temporal_rule": "from_first_change",
+    "start_frame": 49,
+    "end_frame_exclusive": 120,
+    "source": "genesis_seg(entity)",
+    "include_target_shadow": false,
+    "shadow_method": null,
+    "shadow_luma_threshold": null,
+    "seg_idx": [
+      2
+    ],
+    "encoding": "x264rgb-crf0-rgb24"
+  },
+  "camera": {
+    "pos": [
+      -0.10401897487718981,
+      -0.4495153512186609,
+      7.246625874412846
+    ],
+    "lookat": [
+      0.2,
+      0.35,
+      0.08
+    ],
+    "fov": 49.81943491293128
+  },
+  "render": {
+    "res": [
+      512,
+      512
+    ],
+    "fps": 24,
+    "n_frames": 120,
+    "dt": 0.041666666666666664
+  },
+  "generation": {
+    "seed": 14000,
+    "engine": "genesis",
+    "genesis_version": "1.2.0",
+    "imageio_version": "2.37.3",
+    "imageio_ffmpeg_version": "0.6.0",
+    "ffmpeg_version": "7.0.2-static",
+    "engine_hash": "e543b1b5749ace75a1c77486805ce8fa",
+    "src_hash": "5969e63c9400fb84832d352492d2a920",
+    "examples_hash": "3f413e4205a84c7edb7727d7fcf966db",
+    "git": "3df6483ce191bdc2a3fcb421fb6ecd858ca5c807",
+    "timestamp": "2026-07-29T01:21:34.416479Z"
+  },
+  "phenomenon_data": {
+    "scene_params": {
+      "orbit_radius": 1.5579875591267325,
+      "puck_radius": 0.20274554896272856,
+      "tangential_speed": 1.0240376608917519,
+      "puck_density": 877.7263904718251,
+      "puck_mass": 30.640916507168225,
+      "release_frame": 49,
+      "tether_thickness": 0.04643346946738923,
+      "orbit_height": 0.29225021523690725,
+      "maximum_cf_radial_error_m": 0.28,
+      "minimum_true_radial_escape_m": 0.75,
+      "minimum_branch_separation_m": 0.65,
+      "gravity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "puck_surface": {
+        "kind": "plastic",
+        "color": [
+          0.273,
+          0.631,
+          0.649
+        ]
+      },
+      "tether_surface": {
+        "kind": "plastic",
+        "color": [
+          0.96,
+          0.42,
+          0.08
+        ]
+      },
+      "anchor_surface": {
+        "kind": "rough",
+        "color": [
+          0.2,
+          0.24,
+          0.31
+        ]
+      },
+      "marker_surface": {
+        "kind": "rough",
+        "color": [
+          0.8,
+          0.84,
+          0.9
+        ]
+      },
+      "floor": [
+        0.08,
+        0.12,
+        0.18
+      ],
+      "camera": {
+        "pos": [
+          -0.10401897487718981,
+          -0.4495153512186609,
+          7.246625874412846
+        ],
+        "lookat": [
+          0.2,
+          0.35,
+          0.08
+        ],
+        "fov": 49.81943491293128
+      },
+      "scenario": "rotating_tether_then_release"
+    },
+    "semantic_ground_truth": {
+      "law": "without a tether or another horizontal force, released motion is tangential",
+      "gravity_mps2": 0.0,
+      "table_condition": "zero-gravity horizontal air-bearing demonstration",
+      "release_frame": 49,
+      "true_outcome": "the released puck follows a straight tangent",
+      "counterfactual_outcome": "the released puck continues curving around the mast",
+      "visible_tether_present_after_release": true,
+      "tether_attached_after_release": false,
+      "detached_tether_behavior": "remains visible and fixed at its release pose in both branches",
+      "intervention": "continued inward force after the shared tether release",
+      "intervention_force_axis": "instantaneous radial direction toward the mast",
+      "mask_targets": [
+        "orbiting_puck"
+      ],
+      "include_shadows": false,
+      "single_violation": "one persistent invisible centripetal-force field begins at release"
+    },
+    "scoring_contract": {
+      "violation_types": [
+        "continue_centripetal_force_after_tether_release"
+      ],
+      "binary_questions": [
+        "Does the puck orbit the central mast while the visible tether is attached?",
+        "After the tether visibly detaches and stays behind, does the puck continue curving around the mast instead of following the straight tangential path shown by the control?"
+      ],
+      "scoring": {
+        "correct_if_true": [
+          "after release on the horizontal zero-gravity table, the puck preserves its instantaneous tangential velocity and travels in a straight line"
+        ],
+        "violation_if_true": [
+          "after the visible tether has detached and remains fixed behind the puck, the puck continues receiving inward force and remains near the old circular orbit with no visible connection or actuator"
+        ]
+      }
+    }
+  }
+}

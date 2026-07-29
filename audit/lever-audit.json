@@ -1,0 +1,78 @@
+{
+  "generator": "impact_lever_torque_direction_reversal",
+  "expected_count": 1,
+  "generated_count": 1,
+  "all_cases_pass": true,
+  "attempts": 1,
+  "rejection_count": 0,
+  "accepted_seed_range": {
+    "min": 15000,
+    "max": 15000
+  },
+  "seed_min": 15000,
+  "seed_max": 15000,
+  "intervention": {
+    "min": 21,
+    "median": 21,
+    "max": 21,
+    "unique_count": 1
+  },
+  "first_changed": {
+    "min": 22,
+    "median": 22,
+    "max": 22,
+    "unique_count": 1
+  },
+  "evidence": {
+    "min": 24,
+    "median": 24,
+    "max": 24,
+    "unique_count": 1
+  },
+  "active_mask_empty_frames": 0,
+  "max_mask_area_ratio": 0.0240325927734375,
+  "generation_log_consistent": true,
+  "rejection_reasons": [],
+  "failures": [],
+  "cases": [
+    {
+      "task_id": "impact_lever_torque_direction_reversal_00015000",
+      "seed": 15000,
+      "intervention_frame": 21,
+      "first_changed_frame": 22,
+      "evidence_frame": 24,
+      "cf_intervention_contact_gap_m": 0.08029979376862562,
+      "max_true_pitch_signal": 0.3250745814930291,
+      "min_cf_pitch_signal": -0.6952030524778372,
+      "checks": {
+        "identity_exact": true,
+        "frame_counts_120": true,
+        "resolution_512": true,
+        "fps_24_duration_5": true,
+        "trajectory_contract": true,
+        "decoded_prefix_exact": true,
+        "decoded_first_change": true,
+        "frame_order": true,
+        "evidence_recomputed": true,
+        "mask_strict_binary": true,
+        "mask_no_isolated_pixels": true,
+        "mask_black_before": true,
+        "mask_active_after": true,
+        "object_only_mask": true,
+        "mask_object_scale": true,
+        "prompts_match_metadata": true,
+        "prompts_match_values": true,
+        "cf_intervention_is_verified_impact": true,
+        "lever_balanced_before_impact": true,
+        "lever_remains_pinned_to_fulcrum": true,
+        "true_rotates_with_torque": true,
+        "cf_rotates_against_torque": true,
+        "semantic_consistent": true,
+        "physical_scaling_present": true,
+        "commit_matches": true
+      },
+      "active_mask_empty_frames": 0,
+      "max_mask_area_ratio": 0.0240325927734375
+    }
+  ]
+}

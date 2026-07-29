@@ -1,0 +1,80 @@
+{
+  "generator": "tether_release_invisible_centripetal_force",
+  "expected_count": 1,
+  "generated_count": 1,
+  "all_cases_pass": true,
+  "attempts": 1,
+  "rejection_count": 0,
+  "accepted_seed_range": {
+    "min": 14000,
+    "max": 14000
+  },
+  "seed_min": 14000,
+  "seed_max": 14000,
+  "intervention": {
+    "min": 49,
+    "median": 49,
+    "max": 49,
+    "unique_count": 1
+  },
+  "first_changed": {
+    "min": 49,
+    "median": 49,
+    "max": 49,
+    "unique_count": 1
+  },
+  "evidence": {
+    "min": 66,
+    "median": 66,
+    "max": 66,
+    "unique_count": 1
+  },
+  "active_mask_empty_frames": 0,
+  "max_mask_area_ratio": 0.00328826904296875,
+  "generation_log_consistent": true,
+  "rejection_reasons": [],
+  "failures": [],
+  "cases": [
+    {
+      "task_id": "tether_release_invisible_centripetal_force_00014000",
+      "seed": 14000,
+      "intervention_frame": 49,
+      "first_changed_frame": 49,
+      "evidence_frame": 66,
+      "release_radius_m": 1.5519786209039574,
+      "true_final_radial_escape_m": 1.902533687136885,
+      "cf_radial_error_p90_m": 0.004578332925453443,
+      "final_branch_separation_m": 2.7666808645948406,
+      "checks": {
+        "identity_exact": true,
+        "frame_counts_120": true,
+        "resolution_512": true,
+        "fps_24_duration_5": true,
+        "trajectory_contract": true,
+        "decoded_prefix_exact": true,
+        "decoded_first_change": true,
+        "frame_order": true,
+        "evidence_recomputed": true,
+        "mask_strict_binary": true,
+        "mask_no_isolated_pixels": true,
+        "mask_black_before": true,
+        "mask_active_after": true,
+        "object_only_mask": true,
+        "mask_object_scale": true,
+        "prompts_match_metadata": true,
+        "prompts_match_values": true,
+        "release_event_matches_scene": true,
+        "pre_release_orbit_is_stable": true,
+        "visible_detached_tether_static_after_release": true,
+        "visible_gap_opens_from_detached_tether": true,
+        "true_escapes_tangentially": true,
+        "cf_stays_near_old_orbit": true,
+        "semantic_consistent": true,
+        "physical_scaling_present": true,
+        "commit_matches": true
+      },
+      "active_mask_empty_frames": 0,
+      "max_mask_area_ratio": 0.00328826904296875
+    }
+  ]
+}

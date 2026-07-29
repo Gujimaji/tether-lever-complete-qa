@@ -1,0 +1,194 @@
+{
+  "task_id": "impact_lever_torque_direction_reversal_00015000",
+  "category": "counterweight_lever_impact",
+  "violation_type": "reverse_lever_angular_velocity_at_verified_impact",
+  "phenomenon": "impact_lever_torque_direction_reversal",
+  "onset_frame": 22,
+  "intervention_frame": 21,
+  "first_changed_frame": 22,
+  "evidence_frame": 24,
+  "paths": {
+    "true": {
+      "video": "true/video.mp4",
+      "trajectory": "true/trajectory.npz",
+      "prompt": "true/prompt.txt"
+    },
+    "counterfactual": {
+      "video": "counterfactual_reverse_lever_angular_velocity_at_verified_impact/video.mp4",
+      "trajectory": "counterfactual_reverse_lever_angular_velocity_at_verified_impact/trajectory.npz",
+      "prompt": "counterfactual_reverse_lever_angular_velocity_at_verified_impact/prompt.txt",
+      "mask": "counterfactual_reverse_lever_angular_velocity_at_verified_impact/mask.mp4",
+      "mask_overlay": "counterfactual_reverse_lever_angular_velocity_at_verified_impact/mask_overlay.mp4"
+    }
+  },
+  "descriptions": {
+    "true": "A 3.12 m rigid lever is balanced on a narrow central fulcrum. A heavy blue counterweight falls vertically onto its left end. A mechanical center pivot keeps the lever attached to the fulcrum throughout. The visible downward impact produces the expected torque: the struck left end descends while the right end rises.",
+    "counterfactual": "A 3.12 m rigid lever is balanced on a narrow central fulcrum. The same heavy blue counterweight makes verified contact with its left end. The same mechanical center pivot keeps the lever attached to the fulcrum throughout, but at that collision only the lever's pitch angular velocity is constrained to the opposite direction (4.02 rad/s) for one short eight-frame intervention. The struck end rises and the far end falls, with no second impact or visible actuator."
+  },
+  "mask_spec": {
+    "target_entities": [
+      "balanced_lever"
+    ],
+    "mask_source": "violation",
+    "temporal_rule": "from_first_change",
+    "start_frame": 22,
+    "end_frame_exclusive": 120,
+    "source": "genesis_seg(entity)",
+    "include_target_shadow": false,
+    "shadow_method": null,
+    "shadow_luma_threshold": null,
+    "seg_idx": [
+      2
+    ],
+    "encoding": "x264rgb-crf0-rgb24"
+  },
+  "camera": {
+    "pos": [
+      -0.017638443120382374,
+      -7.18147605019088,
+      2.0779835162404803
+    ],
+    "lookat": [
+      0.0,
+      0.0,
+      1.72
+    ],
+    "fov": 44.406578680538985
+  },
+  "render": {
+    "res": [
+      512,
+      512
+    ],
+    "fps": 24,
+    "n_frames": 120,
+    "dt": 0.041666666666666664
+  },
+  "generation": {
+    "seed": 15000,
+    "engine": "genesis",
+    "genesis_version": "1.2.0",
+    "imageio_version": "2.37.3",
+    "imageio_ffmpeg_version": "0.6.0",
+    "ffmpeg_version": "7.0.2-static",
+    "engine_hash": "2ce67963ef553b949c351e5d8e09243e",
+    "src_hash": "43fed450b199886b626a6fee27aa9077",
+    "examples_hash": "cdc37462222313e824af2a1eb5418921",
+    "git": "3df6483ce191bdc2a3fcb421fb6ecd858ca5c807",
+    "timestamp": "2026-07-29T01:23:49.794519Z"
+  },
+  "phenomenon_data": {
+    "scene_params": {
+      "lever_length": 3.1225117904141366,
+      "lever_width": 0.5233525524143869,
+      "lever_thickness": 0.1958981429847374,
+      "lever_center_z": 1.1500919684849367,
+      "lever_density": 299.35010114482344,
+      "lever_friction": 0.8353748067480087,
+      "weight_radius": 0.26254858108668166,
+      "weight_density": 1239.883667347686,
+      "weight_start": [
+        -1.0185924437751974,
+        0.0,
+        4.1703898262278996
+      ],
+      "impact_x": -1.0185924437751974,
+      "reversed_pitch_speed": 4.020527524945176,
+      "intervention_frames": 8,
+      "minimum_wrong_pitch": 0.10837949731133545,
+      "minimum_true_pitch": 0.043073327316823055,
+      "contact_tolerance_m": 0.055,
+      "pivot_lock_tolerance_m": 0.003,
+      "lever_pivot_position": [
+        0.0,
+        0.0,
+        1.1500919684849367
+      ],
+      "gravity": [
+        0.0,
+        0.0,
+        -6.5
+      ],
+      "lever_surface": {
+        "kind": "plastic",
+        "color": [
+          0.94,
+          0.48,
+          0.1
+        ]
+      },
+      "weight_surface": {
+        "kind": "plastic",
+        "color": [
+          0.12,
+          0.52,
+          0.92
+        ]
+      },
+      "fulcrum_surface": {
+        "kind": "rough",
+        "color": [
+          0.28,
+          0.31,
+          0.38
+        ]
+      },
+      "floor": [
+        0.16,
+        0.18,
+        0.22
+      ],
+      "camera": {
+        "pos": [
+          -0.017638443120382374,
+          -7.18147605019088,
+          2.0779835162404803
+        ],
+        "lookat": [
+          0.0,
+          0.0,
+          1.72
+        ],
+        "fov": 44.406578680538985
+      },
+      "scenario": "centrally_pinned_lever"
+    },
+    "semantic_ground_truth": {
+      "law": "an off-center downward impact produces angular impulse in the matching torque direction",
+      "gravity_mps2": -6.5,
+      "impact_side": "left of the central fulcrum",
+      "true_outcome": "left end descends and right end rises",
+      "counterfactual_outcome": "left end rises and right end descends",
+      "trigger_contact": "Genesis collision pair between falling_counterweight and balanced_lever",
+      "intervention_velocity_components": [
+        "angular_velocity_y"
+      ],
+      "linear_velocity_modified": false,
+      "other_angular_components_modified": false,
+      "shared_pivot_constraint": "lever center remains mechanically pinned to the central fulcrum in both branches",
+      "lever_separates_from_fulcrum": false,
+      "mask_targets": [
+        "balanced_lever"
+      ],
+      "include_shadows": false,
+      "single_violation": "one short opposite pitch angular-velocity intervention begins at verified impact"
+    },
+    "scoring_contract": {
+      "violation_types": [
+        "reverse_lever_angular_velocity_at_verified_impact"
+      ],
+      "binary_questions": [
+        "Does the falling counterweight visibly contact the left side of the balanced lever?",
+        "Immediately after that contact, does the struck left side rise while the right side falls, opposite the visible impact torque?"
+      ],
+      "scoring": {
+        "correct_if_true": [
+          "a downward impact on the lever's left side rotates the left side down and the right side up about the central fulcrum"
+        ],
+        "violation_if_true": [
+          "at the verified counterweight-lever collision, one short intervention constrains only the lever's pitch angular velocity to the opposite direction"
+        ]
+      }
+    }
+  }
+}
